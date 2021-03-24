@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"
+        android:onClick="backToActivity"
+        android:text="cancel"
+        app:backgroundTint="#FD0101" />
+
+    <ListView
+        android:id="@+id/viewPayableNameList"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/monthfeeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs: 3700"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#388E3C"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -32,15 +32,20 @@
         android:text="Names"
         app:backgroundTint="#F57C00" />
 
+    <ListView
+        android:id="@+id/monthViewList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp" />
+
     <TextView
-        android:id="@+id/monthFeeView"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:text="Rs: 3700"
-        android:textColor="#C2185B"
-        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:text="Bodima 1.0.0V"
+        android:textColor="#1976D2"
+        android:textSize="36sp"
         android:textStyle="bold" />
 </RelativeLayout>

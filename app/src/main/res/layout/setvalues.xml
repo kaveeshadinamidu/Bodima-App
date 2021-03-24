@@ -41,6 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="240dp"
         android:text="Enter"
+        android:onClick="enterValuesToDatabase"
         app:backgroundTint="#7B1FA2" />
 
     <Button

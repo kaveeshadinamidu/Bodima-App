@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class databaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "details.db";
-    private static final String TABLE_NAME = "students_data";
+    public static final String DATABASE_NAME = "bodimdetails.db";
+    public static final String TABLE_NAME = "students_data";
 
     public databaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -43,15 +43,22 @@ public class databaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean addRow(String column, String value){
+        SQLiteDatabase appDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(column,value);
+        long i = appDatabase.insert(TABLE_NAME,null,contentValues);
+        appDatabase.close();
+        return i != -1;
+    }
+
     public boolean addValues(String rowName, String columnName, String value){
         SQLiteDatabase appDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(columnName,value);
         long i = appDatabase.update(TABLE_NAME,contentValues,"month = ?",new String[]{rowName});
-        if (i==1){
-            return true;
-        }
-        return false;
+        appDatabase.close();
+        return i == 1;
     }
 
     public String getValueInDatabase(String rowName , String columnName){
@@ -75,11 +82,12 @@ public class databaseHelper extends SQLiteOpenHelper {
         try {
             value = c.getString(c.getColumnIndex(columnName));
         }catch (Exception e){
+            appDatabase.close();
             return null;
         }finally {
             c.close();
         }
-
+        appDatabase.close();
         return value;
     }
 
